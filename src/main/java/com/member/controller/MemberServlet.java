@@ -31,7 +31,7 @@ public class MemberServlet extends HttpServlet {
 
             req.setAttribute("errMsgs", errMsgs);
 
-            String str = req.getParameter("memberno");
+            String str = req.getParameter("memberNo");
             if (str == null || (str.trim()).length() == 0) {
                 errMsgs.add("輸入會員編號");
             }
@@ -42,9 +42,9 @@ public class MemberServlet extends HttpServlet {
                 return;
             }
 
-            Integer memberno = null;
+            Integer memberNo = null;
             try {
-                memberno = Integer.valueOf(str);
+                memberNo = Integer.valueOf(str);
             } catch (Exception e) {
                 errMsgs.add("會員編號格式不正確");
             }
@@ -55,8 +55,8 @@ public class MemberServlet extends HttpServlet {
                 return;
             }
 
-            MemberService ememSvr = new MemberService();
-            MemberVO memberVO = ememSvr.getOneMem(memberno);
+            MemberService memSvr = new MemberService();
+            MemberVO memberVO = memSvr.getOneMem(memberNo);
             if (memberVO == null) {
                 errMsgs.add("沒有資料");
             }
@@ -78,10 +78,10 @@ public class MemberServlet extends HttpServlet {
             List<String> errMsgs = new LinkedList<String>();
             req.setAttribute("errMsgs", errMsgs);
 
-            Integer memberno = Integer.valueOf(req.getParameter("memberno"));
+            Integer memberNo = Integer.valueOf(req.getParameter("memberNo"));
 
             MemberService ememSvr = new MemberService();
-            MemberVO memberVO = ememSvr.getOneMem(memberno);
+            MemberVO memberVO = ememSvr.getOneMem(memberNo);
 
             req.setAttribute("memberVO", memberVO);
             String url = "/member/update_mem_input.jsp";
@@ -93,7 +93,7 @@ public class MemberServlet extends HttpServlet {
             List<String> errMsgs = new LinkedList<String>();
             req.setAttribute("errMsgs", errMsgs);
 
-            Integer memNo = Integer.valueOf(req.getParameter("memberno"));
+            Integer memNo = Integer.valueOf(req.getParameter("memberNo"));
             String memName = req.getParameter("name");
             String memNameReg = "^[(\\u4e00-\\u9fa5)(a-zA-Z0-9_)]{2,10}$";
 

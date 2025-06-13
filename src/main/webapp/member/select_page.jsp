@@ -42,7 +42,7 @@
 	<font style="color:red">請修正以下錯誤:</font>
 	<ul>
 	    <c:forEach var="message" items="${errMsgs}">
-			<li style="color:red">${errMsgs}</li>
+			<li style="color:red">${message}</li>
 		</c:forEach>
 	</ul>
 </c:if>
@@ -54,7 +54,7 @@
   <li>
     <FORM METHOD="post" ACTION="mem.do" >
         <b>輸入會員編號 :</b>
-        <input type="text" name="memberno">
+        <input type="text" name="memberNo">
         <input type="hidden" name="action" value="getOne_For_Display">
         <input type="submit" value="送出">
     </FORM>
@@ -65,7 +65,7 @@
   <li>
      <FORM METHOD="post" ACTION="mem.do" >
        <b>選擇會員編號:</b>
-       <select size="1" name="memberno">
+       <select size="1" name="memberNo">
          <c:forEach var="memberVO" items="${memSrv.all}" >
           <option value="${memberVO.memNo}">${memberVO.memNo}
          </c:forEach>   
@@ -78,7 +78,7 @@
   <li>
      <FORM METHOD="post" ACTION="mem.do" >
        <b>選擇會員姓名:</b>
-       <select size="1" name="memberno">
+       <select size="1" name="memberNo">
          <c:forEach var="memberVO" items="${memSrv.all}" >
           <option value="${memberVO.memNo}">${memberVO.memName}
          </c:forEach>   
@@ -91,7 +91,7 @@
   <li>
      <FORM METHOD="post" ACTION="mem.do" >
        <b>選擇會員暱稱:</b>
-       <select size="1" name="memberno">
+       <select size="1" name="memberNo">
          <c:forEach var="memberVO" items="${memSrv.all}" >
           <option value="${memberVO.memNo}">${memberVO.memNickName}
          </c:forEach>   
@@ -103,7 +103,7 @@
 </ul>
 
 
-<h3>員工管理</h3>
+<h3>會員管理</h3>
 
 <ul>
   <li><a href='addMem.jsp'>Add</a> a new Member.</li>

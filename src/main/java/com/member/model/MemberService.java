@@ -22,6 +22,7 @@ public class MemberService {
         memberVO.setMemAdrs(address);
         memberVO.setMemPhone(phone);
         memberVO.setMemBirthday(birthday);
+
         dao.insertMember(memberVO);
 
         return memberVO;
@@ -48,8 +49,8 @@ public class MemberService {
         memberVO.setAuthenticated(authenticated);
         memberVO.setPoint(point);
 
-
         dao.updateMember(memberVO);
+
         return memberVO;
     }
 

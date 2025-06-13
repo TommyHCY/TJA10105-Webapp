@@ -3,13 +3,13 @@
 <%@ page import="com.member.model.*"%>
 
 <% //見com.emp.controller.EmpServlet.java第238行存入req的empVO物件 (此為輸入格式有錯誤時的empVO物件)
-   MemberVO empVO = (MemberVO) request.getAttribute("empVO");
+   MemberVO memberVO = (MemberVO) request.getAttribute("memberVO");
 %>
 
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<title>員工資料新增 - addEmp.jsp</title>
+<title>會員資料新增 - addMem.jsp</title>
 
 <style>
   table#table-1 {
@@ -48,7 +48,7 @@
 
 <table id="table-1">
 	<tr><td>
-		 <h3>員工資料新增 - addEmp.jsp</h3></td><td>
+		 <h3>會員資料新增 - addMem.jsp</h3></td><td>
 		 <h4><a href="select_page.jsp"><img src="images/tomcat.png" width="100" height="100" border="0">回首頁</a></h4>
 	</td></tr>
 </table>
@@ -56,40 +56,49 @@
 <h3>資料新增:</h3>
 
 <%-- 錯誤表列 --%>
-<c:if test="${not empty errorMsgs}">
+<c:if test="${not empty errMsgs}">
 	<font style="color:red">請修正以下錯誤:</font>
 	<ul>
-		<c:forEach var="message" items="${errorMsgs}">
+		<c:forEach var="message" items="${errMsgs}">
 			<li style="color:red">${message}</li>
 		</c:forEach>
 	</ul>
 </c:if>
 
-<FORM METHOD="post" ACTION="emp.do" name="form1">
+<FORM METHOD="post" ACTION="mem.do" name="form1">
 <table>
-	
-	
-	
-	
+
 	<tr>
-		<td>員工姓名:</td>
-		<td><input type="TEXT" name="ename" value="<%= (empVO==null)? "吳永志" : empVO.getEname()%>" size="45"/></td>
+		<td>會員姓名:</td>
+		<td><input type="TEXT" name="memName" value="<%=(memberVO==null)?"大小吳Tomcat":memberVO.getMemName()%>" size="45"/></td>
 	</tr>
 	<tr>
-		<td>職位:</td>
-		<td><input type="TEXT" name="job"   value="<%= (empVO==null)? "MANAGER" : empVO.getJob()%>" size="45"/></td>
+		<td>會員暱稱:</td>
+		<td><input type="TEXT" name="memNickName"   value="<%=(memberVO==null)?"膽固醇Tomcat":memberVO.getMemNickName()%>" size="45"/></td>
 	</tr>
 	<tr>
-		<td>雇用日期:</td>
-		<td><input name="hiredate" id="f_date1" type="text" ></td>
+		<td>會員帳號:</td>
+		<td><input type="TEXT" name="memAccount"   value="<%=(memberVO==null)?"AstroidCat":memberVO.getMemNickName()%>" size="45"/></td>
 	</tr>
 	<tr>
-		<td>薪水:</td>
-		<td><input type="TEXT" name="sal"   value="<%= (empVO==null)? "10000" : empVO.getSal()%>" size="45"/></td>
+		<td>會員密碼:</td>
+		<td><input type="TEXT" name="memPassword"   value="<%=(memberVO==null)?"jdbchibernate":memberVO.getMemPassword()%>" size="45"/></td>
 	</tr>
 	<tr>
-		<td>獎金:</td>
-		<td><input type="TEXT" name="comm"  value="<%= (empVO==null)? "100" : empVO.getComm()%>" size="45"/></td>
+		<td>會員Email:</td>
+		<td><input type="TEXT" name="memEmail"   value="<%=(memberVO==null)?"David@TJA101.com.tw":memberVO.getMemEmail()%>" size="45"/></td>
+	</tr>
+	<tr>
+		<td>會員地址:</td>
+		<td><input type="TEXT" name="memAddress"   value="<%=(memberVO==null)?"兄弟大飯店斜對面滷味攤":memberVO.getMemAdrs()%>" size="45"/></td>
+	</tr>
+	<tr>
+		<td>會員電話:</td>
+		<td><input type="TEXT" name="memPhone"   value="<%=(memberVO==null)?"0987487487":memberVO.getMemPhone()%>" size="45"/></td>
+	</tr>
+	<tr>
+		<td>會員生日日期:</td>
+		<td><input name="memBirthday" id="f_date1" type="text" ></td>
 	</tr>
 
 <%--	<jsp:useBean id="deptSvc" scope="page" class="com.dept.model.DeptService" />--%>
@@ -114,11 +123,11 @@
 <!-- =========================================以下為 datetimepicker 之相關設定========================================== -->
 
 <% 
-  java.sql.Date hiredate = null;
+  java.sql.Date birthday = null;
   try {
-	    hiredate = empVO.getHiredate();
+	    birthday = memberVO.getMemBirthday();
    } catch (Exception e) {
-	    hiredate = new java.sql.Date(System.currentTimeMillis());
+	  birthday = new java.sql.Date(System.currentTimeMillis());
    }
 %>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/datetimepicker/jquery.datetimepicker.css" />
@@ -141,7 +150,7 @@
 	       timepicker:false,       //timepicker:true,
 	       step: 1,                //step: 60 (這是timepicker的預設間隔60分鐘)
 	       format:'Y-m-d',         //format:'Y-m-d H:i:s',
-		   value: '<%=hiredate%>', // value:   new Date(),
+		   value: '<%=birthday%>', // value:   new Date(),
            //disabledDates:        ['2017/06/08','2017/06/09','2017/06/10'], // 去除特定不含
            //startDate:	            '2017/07/10',  // 起始日
            //minDate:               '-1970-01-01', // 去除今日(不含)之前

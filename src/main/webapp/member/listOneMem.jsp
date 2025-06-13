@@ -1,14 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.emp.model.*"%>
+<%@ page import="com.member.model.*"%>
 <%-- 此頁暫練習採用 Script 的寫法取值 --%>
 
 <%
-  EmpVO empVO = (EmpVO) request.getAttribute("empVO"); //EmpServlet.java(Concroller), 存入req的empVO物件
+  MemberVO memVO = (MemberVO) request.getAttribute("memberVO"); //EmpServlet.java(Concroller), 存入req的empVO物件
 %>
-
+<%= memVO==null %>
 <html>
 <head>
-<title>員工資料 - listOneEmp.jsp</title>
+<title>會員資料 - listOneMem.jsp</title>
 
 <style>
   table#table-1 {
@@ -49,29 +49,47 @@
 <h4>此頁暫練習採用 Script 的寫法取值:</h4>
 <table id="table-1">
 	<tr><td>
-		 <h3>員工資料 - listOneEmp.jsp</h3>
+		 <h3>會員工資料 - listOneMem.jsp</h3>
 		 <h4><a href="select_page.jsp"><img src="images/back1.gif" width="100" height="32" border="0">回首頁</a></h4>
 	</td></tr>
 </table>
 
 <table>
+		<tr>
+			<th>會員編號</th>
+			<th>會員姓名</th>
+			<th>會員暱稱</th>
+			<th>會員帳號</th>
+			<th>會員密碼</th>
+			<th>會員Email</th>
+			<th>會員電話</th>
+			<th>會員生日日期</th>
+			<th>會員狀態</th>
+			<th>會員Token</th>
+			<th>會員Email認證代碼</th>
+			<th>可否發文</th>
+			<th>可否留言</th>
+			<th>可否買二手物品</th>
+			<th>會員認證狀態</th>
+			<th>會員積分</th>
+		</tr>
 	<tr>
-		<th>員工編號</th>
-		<th>員工姓名</th>
-		<th>職位</th>
-		<th>雇用日期</th>
-		<th>薪水</th>
-		<th>獎金</th>
-		<th>部門</th>
-	</tr>
-	<tr>
-		<td><%=empVO.getEmpno()%></td>
-		<td><%=empVO.getEname()%></td>
-		<td><%=empVO.getJob()%></td>
-		<td><%=empVO.getHiredate()%></td>
-		<td><%=empVO.getSal()%></td>
-		<td><%=empVO.getComm()%></td>
-		<td><%=empVO.getDeptno()%></td>
+		<td><%=memVO.getMemNo()%></td>
+		<td><%=memVO.getMemName()%></td>
+		<td><%=memVO.getMemNickName()%></td>
+		<td><%=memVO.getMemAccount()%></td>
+		<td><%=memVO.getMemPassword()%></td>
+		<td><%=memVO.getMemEmail()%></td>
+		<td><%=memVO.getMemPhone()%></td>
+		<td><%=memVO.getMemBirthday()%></td>
+		<td><%=memVO.getMemStatus()%></td>
+		<td><%=memVO.getMemToken()%></td>
+		<td><%=memVO.getMemEmailAuth()%></td>
+		<td><%=memVO.getCanPost()%></td>
+		<td><%=memVO.getCanComment()%></td>
+		<td><%=memVO.getCanUsedPro()%></td>>
+		<td><%=memVO.getMemEmailAuth()%></td>
+		<td><%= memVO.getPoint() %></td>
 	</tr>
 </table>
 
