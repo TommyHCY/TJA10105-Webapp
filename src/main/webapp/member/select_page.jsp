@@ -53,7 +53,7 @@
   
   <li>
     <FORM METHOD="post" ACTION="mem.do" >
-        <b>輸入員工編號 (如7001):</b>
+        <b>輸入會員編號 :</b>
         <input type="text" name="memberno">
         <input type="hidden" name="action" value="getOne_For_Display">
         <input type="submit" value="送出">
@@ -64,7 +64,7 @@
    
   <li>
      <FORM METHOD="post" ACTION="mem.do" >
-       <b>選擇員工編號:</b>
+       <b>選擇會員編號:</b>
        <select size="1" name="memberno">
          <c:forEach var="memberVO" items="${memSrv.all}" >
           <option value="${memberVO.memNo}">${memberVO.memNo}
@@ -77,10 +77,23 @@
   
   <li>
      <FORM METHOD="post" ACTION="mem.do" >
-       <b>選擇員工姓名:</b>
+       <b>選擇會員姓名:</b>
        <select size="1" name="memberno">
          <c:forEach var="memberVO" items="${memSrv.all}" >
-          <option value="${memberVO.empno}">${memberVO.ename}
+          <option value="${memberVO.memNo}">${memberVO.memName}
+         </c:forEach>   
+       </select>
+       <input type="hidden" name="action" value="getOne_For_Display">
+       <input type="submit" value="送出">
+     </FORM>
+  </li>
+  
+  <li>
+     <FORM METHOD="post" ACTION="mem.do" >
+       <b>選擇會員暱稱:</b>
+       <select size="1" name="memberno">
+         <c:forEach var="memberVO" items="${memSrv.all}" >
+          <option value="${memberVO.memNo}">${memberVO.memNickName}
          </c:forEach>   
        </select>
        <input type="hidden" name="action" value="getOne_For_Display">
