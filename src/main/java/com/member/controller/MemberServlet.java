@@ -94,7 +94,7 @@ public class MemberServlet extends HttpServlet {
             req.setAttribute("errMsgs", errMsgs);
 
             Integer memNo = Integer.valueOf(req.getParameter("memberNo"));
-            String memName = req.getParameter("name");
+            String memName = req.getParameter("memName");
             String memNameReg = "^[(\\u4e00-\\u9fa5)(a-zA-Z0-9_)]{2,10}$";
 
             if (memName == null || memName.trim().length() == 0) {
@@ -103,66 +103,66 @@ public class MemberServlet extends HttpServlet {
                 errMsgs.add("員工姓名: 只能是中、英文字母、數字和_ , 且長度必需在2到10之間");
             }
 
-            String memNickName = req.getParameter("nickname").trim();
+            String memNickName = req.getParameter("memNickName").trim();
             if (memNickName == null || memNickName.trim().length() == 0) {
                 errMsgs.add("暱稱不要空白");
             }
 
-            String memAccount = req.getParameter("account").trim();
+            String memAccount = req.getParameter("memAccount").trim();
             if (memAccount == null || memAccount.trim().length() == 0) {
                 errMsgs.add("帳號不要空白");
             }
 
-            String memPassword = req.getParameter("password").trim();
+            String memPassword = req.getParameter("memPassword").trim();
             if (memPassword == null || memPassword.trim().length() == 0) {
                 errMsgs.add("密碼不要空白");
             }
 
-            String memEmail = req.getParameter("email").trim();
+            String memEmail = req.getParameter("memEmail").trim();
             if (memEmail == null || memEmail.trim().length() == 0) {
                 errMsgs.add("email不要空白");
             }
 
-            String memAddress = req.getParameter("address").trim();
+            String memAddress = req.getParameter("memAddress").trim();
             if (memAddress == null || memAddress.trim().length() == 0) {
                 errMsgs.add("地址不要空白");
             }
 
-            String memPhone = req.getParameter("phone").trim();
+            String memPhone = req.getParameter("memPhone").trim();
             if (memPhone == null || memPhone.trim().length() == 0) {
                 errMsgs.add("電話不要空白");
             }
 
             Date memBirthday = null;
             try {
-                memBirthday = Date.valueOf(req.getParameter("birthday"));
+                memBirthday = Date.valueOf(req.getParameter("memBirthday"));
             } catch (Exception e) {
                 memBirthday = new Date(System.currentTimeMillis());
                 errMsgs.add("輸入日期");
             }
 
-            String memStatus = req.getParameter("status").trim();
+            String memStatus = req.getParameter("memStatus").trim();
             if (memStatus == null || memStatus.trim().length() == 0) {
                 errMsgs.add("狀態不可空白");
             }
 
-            String memToken = req.getParameter("token").trim();
+            String memToken = req.getParameter("memToken").trim();
             if (memToken == null || memToken.trim().length() == 0) {
                 errMsgs.add("Token不可空白");
             }
 
-            String memEmailAuth = req.getParameter("emailAuth").trim();
+            String memEmailAuth = req.getParameter("memEmailAuth").trim();
             if (memEmailAuth == null || memEmailAuth.trim().length() == 0) {
                 errMsgs.add("EmailAuth不可空白");
             }
 
-            Boolean memPost = Boolean.valueOf(req.getParameter("post").trim());
+            Boolean memPost = Boolean.valueOf(req.getParameter("memPost").trim());
 
-            Boolean memComment = Boolean.valueOf(req.getParameter("comment").trim());
+            Boolean memComment = Boolean.valueOf(req.getParameter("memComment").trim());
 
-            Boolean memUsedProd = Boolean.valueOf(req.getParameter("usedProd").trim());
+            Boolean memUsedProd = Boolean.valueOf(req.getParameter("memUsedProd").trim());
 
-            Boolean memAuth = Boolean.valueOf(req.getParameter("auth"));
+            Boolean memAuth = Boolean.valueOf(req.getParameter("memAuth"));
 
             Integer point = Integer.valueOf(req.getParameter("point").trim());
 
@@ -205,7 +205,7 @@ public class MemberServlet extends HttpServlet {
             List<String> errMsgs = new LinkedList<String>();
 
             req.setAttribute("errMsgs", errMsgs);
-            String memName = req.getParameter("name");
+            String memName = req.getParameter("memName");
             String memNameReg = "^[(\\u4e00-\\u9fa5)(a-zA-Z0-9_)]{2,10}$";
 
             if (memName == null || memName.trim().length() == 0) {
@@ -214,39 +214,39 @@ public class MemberServlet extends HttpServlet {
                 errMsgs.add("員工姓名: 只能是中、英文字母、數字和_ , 且長度必需在2到10之間");
             }
 
-            String memNickName = req.getParameter("nickname").trim();
+            String memNickName = req.getParameter("memNickName").trim();
             if (memNickName == null || memNickName.trim().length() == 0) {
                 errMsgs.add("暱稱不要空白");
             }
 
-            String memAccount = req.getParameter("account").trim();
+            String memAccount = req.getParameter("memAccount").trim();
             if (memAccount == null || memAccount.trim().length() == 0) {
                 errMsgs.add("帳號不要空白");
             }
 
-            String memPassword = req.getParameter("password").trim();
+            String memPassword = req.getParameter("memPassword").trim();
             if (memPassword == null || memPassword.trim().length() == 0) {
                 errMsgs.add("密碼不要空白");
             }
 
-            String memEmail = req.getParameter("email").trim();
+            String memEmail = req.getParameter("memEmail").trim();
             if (memEmail == null || memEmail.trim().length() == 0) {
                 errMsgs.add("email不要空白");
             }
 
-            String memAddress = req.getParameter("address").trim();
+            String memAddress = req.getParameter("memAddress").trim();
             if (memAddress == null || memAddress.trim().length() == 0) {
                 errMsgs.add("地址不要空白");
             }
 
-            String memPhone = req.getParameter("phone").trim();
+            String memPhone = req.getParameter("memPhone").trim();
             if (memPhone == null || memPhone.trim().length() == 0) {
                 errMsgs.add("電話不要空白");
             }
 
             Date memBirthday = null;
             try {
-                memBirthday = Date.valueOf(req.getParameter("birthday"));
+                memBirthday = Date.valueOf(req.getParameter("memBirthday"));
             } catch (Exception e) {
                 memBirthday = new Date(System.currentTimeMillis());
                 errMsgs.add("輸入日期");
@@ -284,7 +284,7 @@ public class MemberServlet extends HttpServlet {
 
             req.setAttribute("errMsgs", errMsgs);
 
-            Integer memNo = Integer.valueOf(req.getParameter("memNo"));
+            Integer memNo = Integer.valueOf(req.getParameter("memberNo"));
 
             MemberService memberService = new MemberService();
             memberService.deleteMem(memNo);

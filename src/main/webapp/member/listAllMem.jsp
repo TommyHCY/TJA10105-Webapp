@@ -104,13 +104,13 @@
 			<td>
 			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/member/mem.do" style="margin-bottom: 0px;">
 			     <input type="submit" value="修改">
-			     <input type="hidden" name="memNo"  value="${memVO.memNo}">
+			     <input type="hidden" name="memberNo"  value="${memVO.memNo}">
 			     <input type="hidden" name="action"	value="getOne_For_Update"></FORM>
 			</td>
 			<td>
 			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/member/mem.do" style="margin-bottom: 0px;">
 			     <input type="submit" value="刪除">
-			     <input type="hidden" name="empno"  value="${memVO.memNo}">
+			     <input type="hidden" name="memberNo"  value="${memVO.memNo}">
 			     <input type="hidden" name="action" value="delete"></FORM>
 			</td>
 		</tr>
