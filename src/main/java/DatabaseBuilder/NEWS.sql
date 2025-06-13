@@ -10,40 +10,40 @@ SET auto_increment_offset = 1;
 SET auto_increment_increment = 1;
 
 -- 建立 NEWS 資料表，並設定各欄位預設值
-CREATE TABLE NEWS (
-NEWS_NO    INT            AUTO_INCREMENT NOT NULL,
-NEWS_TIT   VARCHAR(255)   NOT NULL,
-NEWS_CON   VARCHAR(9000)   NOT NULL,
-NEWS_UPDATE DATETIME       NULL DEFAULT NULL COMMENT '若未指定，預設為 NULL',
-NEWS_CRDATE DATETIME       NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '自動填入資料插入時間',
-MEM_NO     INT            NOT NULL DEFAULT 1        COMMENT '預設管理員 1',
-CONSTRAINT NEWS_PK         PRIMARY KEY (NEWS_NO),
-CONSTRAINT NEWS_FK_MEMBER  FOREIGN KEY (MEM_NO) REFERENCES MEMBER(MEM_NO)
+CREATE TABLE NEWS
+(
+    NEWS_NO     INT AUTO_INCREMENT NOT NULL,
+    NEWS_TIT    VARCHAR(255)       NOT NULL,
+    NEWS_CON    VARCHAR(9000)      NOT NULL,
+    NEWS_UPDATE DATETIME ON UPDATE CURRENT_TIMESTAMP COMMENT '若未指定，預設為 NULL',
+    NEWS_CRDATE DATETIME           NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '自動填入資料插入時間',
+    MEM_NO      INT                NOT NULL DEFAULT 1 COMMENT '預設管理員 1',
+    CONSTRAINT NEWS_PK PRIMARY KEY (NEWS_NO),
+    CONSTRAINT NEWS_FK_MEMBER FOREIGN KEY (MEM_NO) REFERENCES MEMBER (MEM_NO)
 ) AUTO_INCREMENT = 1;
 
 -- 插入 50 筆假資料，其中部分 NEWS_UPDATE 設為 NULL
 -- 先插入5筆 
-INSERT INTO NEWS (NEWS_TIT, NEWS_CON, NEWS_UPDATE, NEWS_CRDATE) VALUES
+INSERT INTO NEWS (NEWS_TIT, NEWS_CON, NEWS_UPDATE, NEWS_CRDATE)
+VALUES ('PS5 獨佔大作《貓咪大亂鬥》宣布延期！原因竟是貓咪演員太難搞？',
+        '開發商喵電感應娛樂宣布《貓咪大亂鬥》延期，原因為貓咪演員配合度不穩，導致動作捕捉進度落後。',
+        '2025-06-01 10:00:00', '2025-05-30 09:00:00'),
 
-('PS5 獨佔大作《貓咪大亂鬥》宣布延期！原因竟是貓咪演員太難搞？',
-'開發商喵電感應娛樂宣布《貓咪大亂鬥》延期，原因為貓咪演員配合度不穩，導致動作捕捉進度落後。',
-'2025-06-01 10:00:00', '2025-05-30 09:00:00'),
+       ('Steam 夏季特賣開跑！錢包君表示：我還沒準備好啊！',
+        '數千款遊戲大幅折扣開賣，建議玩家列好清單避免失控消費。',
+        '2025-06-02 11:00:00', '2025-06-01 08:30:00'),
 
-('Steam 夏季特賣開跑！錢包君表示：我還沒準備好啊！',
-'數千款遊戲大幅折扣開賣，建議玩家列好清單避免失控消費。',
-'2025-06-02 11:00:00', '2025-06-01 08:30:00'),
+       ('獨立遊戲《時空紙牌》登上排行榜前十名！',
+        '由三人團隊開發的《時空紙牌》憑藉創新玩法和懷舊像素風格，成功登上 Steam 排行榜前十名。',
+        NULL, '2025-06-04 10:00:00'),
 
-('獨立遊戲《時空紙牌》登上排行榜前十名！',
-'由三人團隊開發的《時空紙牌》憑藉創新玩法和懷舊像素風格，成功登上 Steam 排行榜前十名。',
-NULL, '2025-06-04 10:00:00'),
+       ('遊戲週邊商品瘋搶！限定款爆賣斷貨！',
+        '人氣遊戲《星辰幻境》的官方週邊商品一上架即被搶購一空，限定款數分鐘內售罄。',
+        '2025-06-05 15:30:00', '2025-06-04 11:00:00'),
 
-('遊戲週邊商品瘋搶！限定款爆賣斷貨！',
-'人氣遊戲《星辰幻境》的官方週邊商品一上架即被搶購一空，限定款數分鐘內售罄。',
-'2025-06-05 15:30:00', '2025-06-04 11:00:00'),
-
-('知名實況主轉戰 YouTube Gaming！',
-'Twitch 主播「阿宅勇者」轉戰 YouTube Gaming 開新頻道，粉絲留言不斷湧現。',
-'2025-06-05 16:00:00', '2025-06-04 12:00:00');
+       ('知名實況主轉戰 YouTube Gaming！',
+        'Twitch 主播「阿宅勇者」轉戰 YouTube Gaming 開新頻道，粉絲留言不斷湧現。',
+        '2025-06-05 16:00:00', '2025-06-04 12:00:00');
 
 -- ('RPG《星界傳說》釋出試玩版！', 
 -- '融合像素與現代玩法的《星界傳說》開放試玩後受到熱烈迴響。',

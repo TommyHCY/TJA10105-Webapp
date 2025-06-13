@@ -9,7 +9,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.ColumnDefault;
 
+
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -17,6 +19,7 @@ import java.util.Set;
 @Entity
 @Table(name = "member")
 public class MemberVO {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MEM_NO", nullable = false)
@@ -64,13 +67,15 @@ public class MemberVO {
     @Column(name = "MEM_BIRTHDAY", nullable = false)
     private Date memBirthday;
 
+    @ColumnDefault("CURRENT_TIMESTAMP")
     @Column(name = "MEM_CREATE")
-    private Date memCreate;
+    private Timestamp memCreate;
 
     @Column(name = "MEM_UPDATE")
-    private Date memUpdate;
+    private Timestamp memUpdate;
 
     @NotNull
+    @ColumnDefault("'0'")
     @Column(name = "MEM_STATUS", nullable = false)
     private Character memStatus;
 
@@ -83,10 +88,12 @@ public class MemberVO {
     private String memEmailAuth;
 
     @NotNull
+    @ColumnDefault("1")
     @Column(name = "CAN_POST", nullable = false)
     private Boolean canPost = false;
 
     @NotNull
+    @ColumnDefault("1")
     @Column(name = "CAN_COMMENT", nullable = false)
     private Boolean canComment = false;
 
@@ -96,9 +103,11 @@ public class MemberVO {
     private Boolean canUsedPro = false;
 
     @NotNull
+    @ColumnDefault("1")
     @Column(name = "AUTHENTICATED", nullable = false)
     private Boolean authenticated = false;
 
+    @ColumnDefault("0")
     @Column(name = "POINT")
     private Integer point;
 
@@ -210,19 +219,19 @@ public class MemberVO {
         this.memStatus = memStatus;
     }
 
-    public Date getMemUpdate() {
+    public Timestamp getMemUpdate() {
         return memUpdate;
     }
 
-    public void setMemUpdate(Date memUpdate) {
+    public void setMemUpdate(Timestamp memUpdate) {
         this.memUpdate = memUpdate;
     }
 
-    public Date getMemCreate() {
+    public Timestamp getMemCreate() {
         return memCreate;
     }
 
-    public void setMemCreate(Date memCreate) {
+    public void setMemCreate(Timestamp memCreate) {
         this.memCreate = memCreate;
     }
 
@@ -315,7 +324,7 @@ public class MemberVO {
                 ", memAccount='" + memAccount + '\'' +
                 ", memPassword='" + memPassword + '\'' +
                 ", memEmail='" + memEmail + '\'' +
-                ", memIconData=" + Arrays.toString(memIconData) +
+//                ", memIconData=" + Arrays.toString(memIconData) +
                 ", memAdrs='" + memAdrs + '\'' +
                 ", memPhone='" + memPhone + '\'' +
                 ", memBirthday=" + memBirthday +
