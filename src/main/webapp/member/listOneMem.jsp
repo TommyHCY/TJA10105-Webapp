@@ -3,7 +3,7 @@
 <%-- 此頁暫練習採用 Script 的寫法取值 --%>
 
 <%
-  //EmpVO empVO = (EmpVO) request.getAttribute("empVO"); //EmpServlet.java(Concroller), 存入req的empVO物件
+  EmpVO empVO = (EmpVO) request.getAttribute("empVO"); //EmpServlet.java(Concroller), 存入req的empVO物件
 %>
 
 <html>
@@ -65,13 +65,13 @@
 		<th>部門</th>
 	</tr>
 	<tr>
-		<td>${empVO.empno}</td>
-		<td>${empVO.ename}</td>
-		<td>${empVO.job}</td>
-		<td>${empVO.hiredate}</td>
-		<td>${empVO.sal}</td>
-		<td>${empVO.comm}</td>
-		<td>${empVO.deptno}-[${empVO.deptVO.dname}]</td>
+		<td><%=empVO.getEmpno()%></td>
+		<td><%=empVO.getEname()%></td>
+		<td><%=empVO.getJob()%></td>
+		<td><%=empVO.getHiredate()%></td>
+		<td><%=empVO.getSal()%></td>
+		<td><%=empVO.getComm()%></td>
+		<td><%=empVO.getDeptno()%></td>
 	</tr>
 </table>
 

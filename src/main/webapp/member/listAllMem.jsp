@@ -81,7 +81,7 @@
 			<td>${empVO.hiredate}</td>
 			<td>${empVO.sal}</td>
 			<td>${empVO.comm}</td> 
-			<td>${empVO.deptno}-[${empVO.deptVO.dname}]</td>
+			<td>${empVO.deptno}</td>
 			<td>
 			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/emp/emp.do" style="margin-bottom: 0px;">
 			     <input type="submit" value="修改">

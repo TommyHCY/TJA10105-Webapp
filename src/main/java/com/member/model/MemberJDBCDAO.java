@@ -138,7 +138,7 @@ public class MemberJDBCDAO implements MemberDAO_Interface {
             pstmt.setString(6, memberVO.getMemAdrs());
             pstmt.setString(7, memberVO.getMemPhone());
             pstmt.setDate(8, memberVO.getMemBirthday());
-            pstmt.setString(9, String.valueOf(memberVO.getMemStatus()));
+            pstmt.setString(9, memberVO.getMemStatus());
             pstmt.setString(10, memberVO.getMemToken());
             pstmt.setString(11, memberVO.getMemEmailAuth());
             pstmt.setBoolean(12, memberVO.getCanPost());
@@ -241,7 +241,7 @@ public class MemberJDBCDAO implements MemberDAO_Interface {
                 memberVO.setMemAdrs(rs.getString("MEM_ADRS"));
                 memberVO.setMemPhone(rs.getString("MEM_PHONE"));
                 memberVO.setMemBirthday(rs.getDate("MEM_BIRTHDAY"));
-                memberVO.setMemStatus(rs.getString("MEM_STATUS").charAt(0));
+                memberVO.setMemStatus(rs.getString("MEM_STATUS"));
                 memberVO.setMemToken(rs.getString("MEM_TOKEN"));
                 memberVO.setMemEmailAuth(rs.getString("MEM_EMAIL_AUTH"));
                 memberVO.setCanPost(rs.getBoolean("CAN_POST"));
@@ -310,7 +310,7 @@ public class MemberJDBCDAO implements MemberDAO_Interface {
                 memberVO.setMemAdrs(rs.getString("MEM_ADRS"));
                 memberVO.setMemPhone(rs.getString("MEM_PHONE"));
                 memberVO.setMemBirthday(rs.getDate("MEM_BIRTHDAY"));
-                memberVO.setMemStatus(rs.getString("MEM_STATUS").charAt(0));
+                memberVO.setMemStatus(rs.getString("MEM_STATUS"));
                 memberVO.setMemToken(rs.getString("MEM_TOKEN"));
                 memberVO.setMemEmailAuth(rs.getString("MEM_EMAIL_AUTH"));
                 memberVO.setCanPost(rs.getBoolean("CAN_POST"));

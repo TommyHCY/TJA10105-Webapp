@@ -77,7 +77,7 @@ public class MemberVO {
     @NotNull
     @ColumnDefault("'0'")
     @Column(name = "MEM_STATUS", nullable = false)
-    private Character memStatus;
+    private String memStatus;
 
     @Size(max = 50)
     @Column(name = "MEM_TOKEN", length = 50)
@@ -211,11 +211,11 @@ public class MemberVO {
         this.memToken = memToken;
     }
 
-    public Character getMemStatus() {
+    public String getMemStatus() {
         return memStatus;
     }
 
-    public void setMemStatus(Character memStatus) {
+    public void setMemStatus(String memStatus) {
         this.memStatus = memStatus;
     }
 
