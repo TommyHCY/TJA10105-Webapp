@@ -81,7 +81,7 @@
 	</tr>
 	<tr>
 		<td>會員帳號:</td>
-		<td><input type="TEXT" name="memAccount"   value="<%=memberVO.getMemNickName()%>" size="45"/></td>
+		<td><input type="TEXT" name="memAccount"   value="<%=memberVO.getMemAccount()%>" size="45"/></td>
 	</tr>
 	<tr>
 		<td>會員密碼:</td>

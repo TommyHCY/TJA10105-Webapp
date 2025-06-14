@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MemberJDBCDAO implements MemberDAO_Interface {
-    //    private static final String INSERT_STMT =
-//            "INSERT INTO MEMBER (MEM_NAME, MEM_NICK_NAME, MEM_ACCOUNT, MEM_PASSWORD, MEM_EMAIL, MEM_ADRS, MEM_PHONE, MEM_BIRTHDAY, MEM_STATUS, MEM_TOKEN, MEM_EMAIL_AUTH,CAN_POST, CAN_COMMENT, CAN_USED_PRO,AUTHENTICATED, POINT) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String INSERT_STMT =
             "INSERT INTO MEMBER (MEM_NAME, MEM_NICK_NAME, MEM_ACCOUNT, MEM_PASSWORD, MEM_EMAIL,MEM_ADRS, MEM_PHONE, MEM_BIRTHDAY) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String GET_ALL_STMT =
