@@ -8,7 +8,7 @@ public class MemberJDBCDAO implements MemberDAO_Interface {
     private static final String INSERT_STMT =
             "INSERT INTO MEMBER (MEM_NAME, MEM_NICK_NAME, MEM_ACCOUNT, MEM_PASSWORD, MEM_EMAIL,MEM_ADRS, MEM_PHONE, MEM_BIRTHDAY) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String GET_ALL_STMT =
-            "SELECT MEM_NO, MEM_NAME, MEM_NICK_NAME,MEM_ACCOUNT, MEM_PASSWORD, MEM_EMAIL, MEM_ADRS, MEM_PHONE, MEM_BIRTHDAY, MEM_STATUS, MEM_TOKEN, MEM_EMAIL_AUTH,CAN_POST, CAN_COMMENT, CAN_USED_PRO,AUTHENTICATED, POINT FROM member order by MEM_NO";
+            "SELECT MEM_NO, MEM_NAME, MEM_NICK_NAME,MEM_ACCOUNT, MEM_PASSWORD, MEM_EMAIL,MEM_ICON_DATA, MEM_ADRS, MEM_PHONE, MEM_BIRTHDAY, MEM_STATUS, MEM_TOKEN, MEM_EMAIL_AUTH,CAN_POST, CAN_COMMENT, CAN_USED_PRO,AUTHENTICATED, POINT FROM member order by MEM_NO";
     private static final String GET_ONE_STMT =
             "SELECT MEM_NO, MEM_NAME, MEM_NICK_NAME,MEM_ACCOUNT, MEM_PASSWORD, MEM_EMAIL, MEM_ADRS, MEM_PHONE, MEM_BIRTHDAY, MEM_STATUS, MEM_TOKEN, MEM_EMAIL_AUTH,CAN_POST, CAN_COMMENT, CAN_USED_PRO,AUTHENTICATED, POINT FROM member where MEM_NO = ?";
     private static final String DELETE =
@@ -305,6 +305,7 @@ public class MemberJDBCDAO implements MemberDAO_Interface {
                 memberVO.setMemAccount(rs.getString("MEM_ACCOUNT"));
                 memberVO.setMemPassword(rs.getString("MEM_PASSWORD"));
                 memberVO.setMemEmail(rs.getString("MEM_EMAIL"));
+                memberVO.setMemIconData(rs.getBytes("MEM_ICON_DATA"));
                 memberVO.setMemAdrs(rs.getString("MEM_ADRS"));
                 memberVO.setMemPhone(rs.getString("MEM_PHONE"));
                 memberVO.setMemBirthday(rs.getDate("MEM_BIRTHDAY"));

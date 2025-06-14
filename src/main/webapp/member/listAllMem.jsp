@@ -15,38 +15,115 @@
 <head>
 <title>所有會員資料 - listAllMem.jsp</title>
 
-<style>
-  table#table-1 {
-	background-color: #CCCCFF;
-    border: 2px solid black;
-    text-align: center;
-  }
-  table#table-1 h4 {
-    color: red;
-    display: block;
-    margin-bottom: 1px;
-  }
-  h4 {
-    color: blue;
-    display: inline;
-  }
-</style>
+<%--<style>--%>
+<%--  table#table-1 {--%>
+<%--	background-color: #CCCCFF;--%>
+<%--    border: 2px solid black;--%>
+<%--    text-align: center;--%>
+<%--  }--%>
+<%--  table#table-1 h4 {--%>
+<%--    color: red;--%>
+<%--    display: block;--%>
+<%--    margin-bottom: 1px;--%>
+<%--  }--%>
+<%--  h4 {--%>
+<%--    color: blue;--%>
+<%--    display: inline;--%>
+<%--  }--%>
+<%--</style>--%>
 
-<style>
-  table {
-	width: 800px;
-	background-color: white;
-	margin-top: 5px;
-	margin-bottom: 5px;
-  }
-  table, th, td {
-    border: 1px solid #CCCCFF;
-  }
-  th, td {
-    padding: 5px;
-    text-align: center;
-  }
-</style>
+<%--<style>--%>
+<%--  table {--%>
+<%--	width: 800px;--%>
+<%--	background-color: white;--%>
+<%--	margin-top: 5px;--%>
+<%--	margin-bottom: 5px;--%>
+<%--  }--%>
+<%--  table, th, td {--%>
+<%--    border: 1px solid #CCCCFF;--%>
+<%--  }--%>
+<%--  th, td {--%>
+<%--    padding: 5px;--%>
+<%--    text-align: center;--%>
+<%--  }--%>
+<%--</style>--%>
+	<style>
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background-color: #f8f9fa;
+			color: #333;
+			margin: 20px;
+		}
+
+		h3 {
+			margin: 0;
+			color: #343a40;
+		}
+
+		a {
+			text-decoration: none;
+			color: #007bff;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			background-color: #ffffff;
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+			margin-top: 20px;
+		}
+
+		th {
+			background-color: #007bff;
+			color: white;
+			padding: 10px;
+			text-align: center;
+		}
+
+		td {
+			padding: 10px;
+			border-bottom: 1px solid #dee2e6;
+			text-align: center;
+		}
+
+		tr:hover {
+			background-color: #f1f3f5;
+		}
+
+		img {
+			border-radius: 50%;
+			object-fit: cover;
+		}
+
+		input[type="submit"] {
+			background-color: #28a745;
+			border: none;
+			color: white;
+			padding: 5px 12px;
+			font-size: 0.9em;
+			border-radius: 4px;
+			cursor: pointer;
+			margin: 2px;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #218838;
+		}
+
+		input[value="刪除"] {
+			background-color: #dc3545;
+		}
+
+		input[value="刪除"]:hover {
+			background-color: #c82333;
+		}
+	</style>
 
 </head>
 <body bgcolor='white'>
@@ -61,6 +138,7 @@
 
 <table>
 	<tr>
+		<th>會員頭貼</th>
 		<th>會員編號</th>
 		<th>會員姓名</th>
         <th>會員暱稱</th>
@@ -84,6 +162,16 @@
 	<c:forEach var="memVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
 
 		<tr>
+			<td>
+			<c:choose>
+			<c:when test="${empty memVO.memIconData}">
+			<img src="images/defaultAnya.png" width="50" height="50"/>
+			</c:when>
+			<c:otherwise>
+			<img src="${pageContext.request.contextPath}/memIconReader?memNo=${memVO.memNo}" width="50" height="50"/>
+			</c:otherwise>
+			</c:choose>
+			</td>>
 			<td>${memVO.memNo}</td>
 			<td>${memVO.memName}</td>
 			<td>${memVO.memNickName}</td>
@@ -97,7 +185,7 @@
 			<td>${memVO.memEmailAuth}</td>
 			<td>${memVO.canPost}</td>
 			<td>${memVO.canComment}</td>
-			<td>${memVO.canUsedPro}</td>>
+			<td>${memVO.canUsedPro}</td>
 			<td>${memVO.authenticated}</td>
 			<td>${memVO.point}</td>
 
