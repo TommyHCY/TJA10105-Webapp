@@ -31,15 +31,33 @@
 		/* 全站基礎設定 */
 		body {
 			font-family: "Microsoft JhengHei", sans-serif;
-			background-color: #f0f4fb;
+			background: linear-gradient(135deg, #e0f7fa 0%, #f0f8ff 100%);
 			color: #2a2a2a;
 			margin: 0;
 			padding: 0;
+			min-height: 100vh;
 		}
 
 		h1, h2, h3, h4 {
 			text-align: center;
-			color: #1d3557;
+			color: #1565c0;
+		}
+
+		/* 去除 ul/li 小黑點 */
+		ul {
+			list-style: none;
+			padding-left: 0;
+			margin: 1em 0;
+		}
+
+		ul li {
+			background: #ffebee;
+			border-left: 4px solid #26a69a;
+			padding: 8px 12px;
+			margin-bottom: 5px;
+			border-radius: 4px;
+			color: #d32f2f;
+			font-weight: 500;
 		}
 
 		/* 表格樣式 */
@@ -47,68 +65,126 @@
 			border-collapse: collapse;
 			width: 85%;
 			margin: 2em auto;
-			background-color: #ffffff;
-			box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+			background: linear-gradient(145deg, #ffffff 0%, #f8fdff 100%);
+			box-shadow: 0 8px 25px rgba(21, 101, 192, 0.15);
+			border-radius: 12px;
+			overflow: hidden;
+		}
+
+		table#table-1 {
+			background: linear-gradient(135deg, #1565c0 0%, #26a69a 100%);
+			color: white;
+		}
+
+		table#table-1 td {
+			padding: 15px 20px;
+			vertical-align: middle;
+		}
+
+		table#table-1 h3 {
+			color: white;
+			margin: 0;
+			font-size: 1.3em;
+		}
+
+		table#table-1 h4 {
+			color: white;
+			margin: 0;
+		}
+
+		table#table-1 h4 a {
+			color: white;
+			text-decoration: none;
+		}
+
+		table#table-1 h4 a:hover {
+			color: #e0f7fa;
 		}
 
 		thead {
-			background-color: #457b9d;
+			background: linear-gradient(135deg, #1565c0 0%, #26a69a 100%);
 			color: white;
 		}
 
 		thead th {
-			padding: 12px 15px;
+			padding: 15px;
 			font-size: 16px;
+			font-weight: 600;
 		}
 
 		tbody td {
-			padding: 10px 15px;
-			border-bottom: 1px solid #dee2e6;
-			text-align: center;
+			padding: 12px 15px;
+			border-bottom: 1px solid #e0f7fa;
+			text-align: left;
+			vertical-align: middle;
+		}
+
+		tbody td:first-child {
+			background: linear-gradient(90deg, #e0f7fa 0%, transparent 100%);
+			font-weight: 600;
+			color: #1565c0;
+			width: 150px;
+			text-align: right;
+			padding-right: 20px;
 		}
 
 		/* 表單樣式 */
 		form {
 			width: 70%;
 			margin: 3em auto;
-			background-color: #e8f0fe;
-			padding: 2em;
-			border-radius: 8px;
-			box-shadow: 0 0 10px rgba(0,0,0,0.06);
+			background: linear-gradient(145deg, #ffffff 0%, #f0f8ff 100%);
+			padding: 2.5em;
+			border-radius: 15px;
+			box-shadow: 0 10px 30px rgba(38, 166, 154, 0.1);
+			border: 1px solid #e0f7fa;
 		}
 
 		form label {
 			font-weight: bold;
 			margin-top: 1em;
 			display: block;
-			color: #1d3557;
+			color: #1565c0;
 		}
 
 		form input, form select, form textarea {
 			width: 100%;
-			padding: 10px;
-			margin-top: 5px;
-			border: 1px solid #aac4e0;
-			border-radius: 5px;
+			padding: 12px 15px;
+			margin-top: 8px;
+			border: 2px solid #e0f7fa;
+			border-radius: 8px;
 			font-size: 14px;
+			transition: all 0.3s ease;
+			background-color: #fafffe;
+		}
+
+		form input:focus, form select:focus, form textarea:focus {
+			outline: none;
+			border-color: #26a69a;
+			box-shadow: 0 0 10px rgba(38, 166, 154, 0.2);
+			background-color: white;
 		}
 
 		/* 按鈕樣式 */
 		.btn {
-			background-color: #1d3557;
+			background: linear-gradient(135deg, #1565c0 0%, #26a69a 100%);
 			color: white;
-			padding: 10px 20px;
+			padding: 12px 25px;
 			margin-top: 1.5em;
 			margin-right: 1em;
 			border: none;
-			border-radius: 5px;
-			font-size: 14px;
+			border-radius: 8px;
+			font-size: 15px;
+			font-weight: 600;
 			cursor: pointer;
-			transition: background-color 0.2s ease-in-out;
+			transition: all 0.3s ease;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
 		}
 
 		.btn:hover {
-			background-color: #27496d;
+			background: linear-gradient(135deg, #0d47a1 0%, #00695c 100%);
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(21, 101, 192, 0.3);
 		}
 
 		/* 按鈕群組右靠 */
@@ -120,20 +196,47 @@
 
 		/* 提示訊息 */
 		.message {
-			color: #e63946;
+			color: #d32f2f;
 			font-weight: bold;
 			text-align: center;
 			margin-top: 1em;
 		}
 
 		.error {
-			color: #d62828;
+			color: #d32f2f;
 			font-size: 14px;
+			background: #ffebee;
+			padding: 10px;
+			border-radius: 6px;
+			border-left: 4px solid #26a69a;
 		}
 
 		.success {
-			color: #2a9d8f;
+			color: #00695c;
 			font-size: 14px;
+			background: #e0f2f1;
+			padding: 10px;
+			border-radius: 6px;
+			border-left: 4px solid #26a69a;
+		}
+
+		/* 日期選擇器樣式調整 */
+		.xdsoft_datetimepicker .xdsoft_datepicker {
+			width: 300px;
+		}
+
+		.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box {
+			height: 151px;
+		}
+
+		/* 主標題樣式 */
+		h3 {
+			background: linear-gradient(135deg, #1565c0, #26a69a);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			font-size: 1.5em;
+			margin: 1em 0;
 		}
 	</style>
 
