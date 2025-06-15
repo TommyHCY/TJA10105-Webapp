@@ -88,7 +88,7 @@
     text-align: center;
     padding: 2em 1em;
     margin-bottom: 2em;
-    border-radius: 0 0 20px 20px;
+    border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     }
 
