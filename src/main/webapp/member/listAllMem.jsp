@@ -336,7 +336,7 @@
 			<img src="${pageContext.request.contextPath}/memIconReader?memNo=${memVO.memNo}" width="50" height="50"/>
 			</c:otherwise>
 			</c:choose>
-			</td>>
+			</td>
 			<td>會員編號: ${memVO.memNo}</td>
 			<td>會員姓名: ${memVO.memName}</td>
 			<td>會員暱稱: ${memVO.memNickName}</td>
