@@ -10,44 +10,153 @@
 <head>
 <title>會員資料 - listOneMem.jsp</title>
 
-<style>
-  table#table-1 {
-	background-color: #CCCCFF;
-    border: 2px solid black;
-    text-align: center;
-  }
-  table#table-1 h4 {
-    color: red;
-    display: block;
-    margin-bottom: 1px;
-  }
-  h4 {
-    color: blue;
-    display: inline;
-  }
-</style>
+<%--<style>--%>
+<%--  table#table-1 {--%>
+<%--	background-color: #CCCCFF;--%>
+<%--    border: 2px solid black;--%>
+<%--    text-align: center;--%>
+<%--  }--%>
+<%--  table#table-1 h4 {--%>
+<%--    color: red;--%>
+<%--    display: block;--%>
+<%--    margin-bottom: 1px;--%>
+<%--  }--%>
+<%--  h4 {--%>
+<%--    color: blue;--%>
+<%--    display: inline;--%>
+<%--  }--%>
+<%--</style>--%>
 
-<style>
-  table {
-	width: 600px;
-	background-color: white;
-	margin-top: 5px;
-	margin-bottom: 5px;
-  }
-  table, th, td {
-    border: 1px solid #CCCCFF;
-  }
-  th, td {
-    padding: 5px;
-    text-align: center;
-  }
-</style>
+<%--<style>--%>
+<%--  table {--%>
+<%--	width: 600px;--%>
+<%--	background-color: white;--%>
+<%--	margin-top: 5px;--%>
+<%--	margin-bottom: 5px;--%>
+<%--  }--%>
+<%--  table, th, td {--%>
+<%--    border: 1px solid #CCCCFF;--%>
+<%--  }--%>
+<%--  th, td {--%>
+<%--    padding: 5px;--%>
+<%--    text-align: center;--%>
+<%--  }--%>
+<%--</style>--%>
+	<style>
+		/* 全站基礎設定 */
+		body {
+			font-family: "Microsoft JhengHei", sans-serif;
+			background-color: #f0f4fb;
+			color: #2a2a2a;
+			margin: 0;
+			padding: 0;
+		}
+
+		h1, h2, h3, h4 {
+			text-align: center;
+			color: #1d3557;
+		}
+
+		/* 表格樣式 */
+		table {
+			border-collapse: collapse;
+			width: 85%;
+			margin: 2em auto;
+			background-color: #ffffff;
+			box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+		}
+
+		thead {
+			background-color: #457b9d;
+			color: white;
+		}
+
+		thead th {
+			padding: 12px 15px;
+			font-size: 16px;
+		}
+
+		tbody td {
+			padding: 10px 15px;
+			border-bottom: 1px solid #dee2e6;
+			text-align: center;
+		}
+
+		/* 表單樣式 */
+		form {
+			width: 70%;
+			margin: 3em auto;
+			background-color: #e8f0fe;
+			padding: 2em;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.06);
+		}
+
+		form label {
+			font-weight: bold;
+			margin-top: 1em;
+			display: block;
+			color: #1d3557;
+		}
+
+		form input, form select, form textarea {
+			width: 100%;
+			padding: 10px;
+			margin-top: 5px;
+			border: 1px solid #aac4e0;
+			border-radius: 5px;
+			font-size: 14px;
+		}
+
+		/* 按鈕樣式 */
+		.btn {
+			background-color: #1d3557;
+			color: white;
+			padding: 10px 20px;
+			margin-top: 1.5em;
+			margin-right: 1em;
+			border: none;
+			border-radius: 5px;
+			font-size: 14px;
+			cursor: pointer;
+			transition: background-color 0.2s ease-in-out;
+		}
+
+		.btn:hover {
+			background-color: #27496d;
+		}
+
+		/* 按鈕群組右靠 */
+		.button-group {
+			text-align: right;
+			margin-top: 1em;
+			margin-right: 10%;
+		}
+
+		/* 提示訊息 */
+		.message {
+			color: #e63946;
+			font-weight: bold;
+			text-align: center;
+			margin-top: 1em;
+		}
+
+		.error {
+			color: #d62828;
+			font-size: 14px;
+		}
+
+		.success {
+			color: #2a9d8f;
+			font-size: 14px;
+		}
+	</style>
 
 </head>
 <body bgcolor='white'>
 
 <h4>此頁暫練習採用 Script 的寫法取值:</h4>
-<table id="table-1">
+<table id="table-1" class="card">
 	<tr><td>
 		 <h3>會員工資料 - listOneMem.jsp</h3>
 		 <h4><a href="select_page.jsp"><img src="images/back1.gif" width="100" height="32" border="0">回首頁</a></h4>
@@ -88,7 +197,7 @@
 		<td><%=memVO.getCanPost()%></td>
 		<td><%=memVO.getCanComment()%></td>
 		<td><%=memVO.getCanUsedPro()%></td>>
-		<td><%=memVO.getMemEmailAuth()%></td>
+		<td><%=memVO.getAuthenticated()%></td>
 		<td><%= memVO.getPoint() %></td>
 	</tr>
 </table>

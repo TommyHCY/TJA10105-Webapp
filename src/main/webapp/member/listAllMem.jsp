@@ -48,82 +48,117 @@
 <%--  }--%>
 <%--</style>--%>
 	<style>
+		/* 全站基礎設定 */
 		body {
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-			background-color: #f8f9fa;
-			color: #333;
-			margin: 20px;
-		}
-
-		h3 {
+			font-family: "Microsoft JhengHei", sans-serif;
+			background-color: #f0f4fb;
+			color: #2a2a2a;
 			margin: 0;
-			color: #343a40;
+			padding: 0;
 		}
 
-		a {
-			text-decoration: none;
-			color: #007bff;
-		}
-
-		a:hover {
-			text-decoration: underline;
-		}
-
-		table {
-			width: 100%;
-			border-collapse: collapse;
-			background-color: #ffffff;
-			border-radius: 8px;
-			overflow: hidden;
-			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-			margin-top: 20px;
-		}
-
-		th {
-			background-color: #007bff;
-			color: white;
-			padding: 10px;
+		h1, h2, h3, h4 {
 			text-align: center;
+			color: #1d3557;
 		}
 
-		td {
-			padding: 10px;
+		/* 表格樣式 */
+		table {
+			border-collapse: collapse;
+			width: 85%;
+			margin: 2em auto;
+			background-color: #ffffff;
+			box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+		}
+
+		thead {
+			background-color: #457b9d;
+			color: white;
+		}
+
+		thead th {
+			padding: 12px 15px;
+			font-size: 16px;
+		}
+
+		tbody td {
+			padding: 10px 15px;
 			border-bottom: 1px solid #dee2e6;
 			text-align: center;
 		}
 
-		tr:hover {
-			background-color: #f1f3f5;
+		/* 表單樣式 */
+		form {
+			width: 70%;
+			margin: 3em auto;
+			background-color: #e8f0fe;
+			padding: 2em;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.06);
 		}
 
-		img {
-			border-radius: 50%;
-			object-fit: cover;
+		form label {
+			font-weight: bold;
+			margin-top: 1em;
+			display: block;
+			color: #1d3557;
 		}
 
-		input[type="submit"] {
-			background-color: #28a745;
-			border: none;
+		form input, form select, form textarea {
+			width: 100%;
+			padding: 10px;
+			margin-top: 5px;
+			border: 1px solid #aac4e0;
+			border-radius: 5px;
+			font-size: 14px;
+		}
+
+		/* 按鈕樣式 */
+		.btn {
+			background-color: #1d3557;
 			color: white;
-			padding: 5px 12px;
-			font-size: 0.9em;
-			border-radius: 4px;
+			padding: 10px 20px;
+			margin-top: 1.5em;
+			margin-right: 1em;
+			border: none;
+			border-radius: 5px;
+			font-size: 14px;
 			cursor: pointer;
-			margin: 2px;
+			transition: background-color 0.2s ease-in-out;
 		}
 
-		input[type="submit"]:hover {
-			background-color: #218838;
+		.btn:hover {
+			background-color: #27496d;
 		}
 
-		input[value="刪除"] {
-			background-color: #dc3545;
+		/* 按鈕群組右靠 */
+		.button-group {
+			text-align: right;
+			margin-top: 1em;
+			margin-right: 10%;
 		}
 
-		input[value="刪除"]:hover {
-			background-color: #c82333;
+		/* 提示訊息 */
+		.message {
+			color: #e63946;
+			font-weight: bold;
+			text-align: center;
+			margin-top: 1em;
+		}
+
+		.error {
+			color: #d62828;
+			font-size: 14px;
+		}
+
+		.success {
+			color: #2a9d8f;
+			font-size: 14px;
 		}
 	</style>
+
+
+
 
 </head>
 <body bgcolor='white'>
@@ -136,7 +171,7 @@
 	</td></tr>
 </table>
 
-<table>
+<table class="ta">
 	<tr>
 		<th>會員頭貼</th>
 		<th>會員編號</th>
