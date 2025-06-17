@@ -110,16 +110,16 @@ public class MemberVO {
     @Column(name = "POINT")
     private Integer point;
 
-    @OneToMany(mappedBy = "memNo")
+    @OneToMany(mappedBy = "memNo", cascade = CascadeType.ALL)
     private Set<NewsVO> news = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "reporter")
+    @OneToMany(mappedBy = "reporter",  cascade = CascadeType.ALL)
     private Set<NewsComReportVO> newsComReports = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "memNo")
+    @OneToMany(mappedBy = "memNo", cascade = CascadeType.ALL)
     private Set<NewsCommentVO> newsComments = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "memNo")
+    @OneToMany(mappedBy = "memNo" , cascade = CascadeType.ALL)
     private Set<NewsLikeVO> newsLikes = new LinkedHashSet<>();
 
     public Set<NewsLikeVO> getNewsLikes() {
